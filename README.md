@@ -2,6 +2,7 @@
 
 Prueba de distintos modos de incrustar favicon y su peso correspondiente. 
 El ico y base 64 del test 1 y 2 [favicon.cc](https://www.favicon.cc/?action=icon&file_id=802401)
+En svg > 1kbyte
 
 **Se realiza 4 pruebas para detectar que pesa en kbytes o bytes, a la hora de incrustar el favicon.ico**
 
