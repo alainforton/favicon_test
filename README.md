@@ -1,6 +1,7 @@
-# favicon_test
+# favicon_test (16x16)
 
-Prueba de distintos modos de incrustar favicon y su peso correspondiente.
+Prueba de distintos modos de incrustar favicon y su peso correspondiente. 
+El ico y base 64 del test 1 y 2 [favicon.cc](https://www.favicon.cc/?action=icon&file_id=802401)
 
 **Se realiza 4 pruebas para detectar que pesa en kbytes o bytes, a la hora de incrustar el favicon.ico**
 
@@ -28,23 +29,33 @@ Se utiliza el favicon encriptado en base 64
 ```
 
 * Test 3
-Se realiza js para que lo haga dinamicamente.
+Se realiza js para que lo haga dinamicamente. En el test el js esta min.
 ```javascript
+
 window.onload = function(){ 
 	var canvas = document.createElement('canvas');
-	canvas.width=8;
-	canvas.height=8;
+	canvas.width=16;
+	canvas.height=16;
 	var ctx=canvas.getContext('2d');
 	
-	for(var i = 0; i < 8; i++){
-		for(var j = 0; j < 8; j++){
-			if(((i+j)%2)==0){
+	var doblex = 0;
+	var dobley = 0;
+	
+	for(var y = 0; y < 8; y++){
+		for(var x = 0; x < 8; x++){
+			if(((x+y)%2)==0){
 				ctx.fillStyle="white";
-				ctx.fillRect(i,j,1,1);
+				ctx.fillRect(x+doblex,y+dobley,2,2);
 			}else{
 				ctx.fillStyle="black";
-				ctx.fillRect(i,j,1,1);
-	}}}
+				ctx.fillRect(x+doblex,y+dobley,2,2);
+			}
+			console.log(x, y);
+			doblex = doblex + 1;
+		}
+		doblex = 0;
+		dobley = dobley + 1;
+	}
 	var link = document.createElement('link');
 	link.type='image/x-icon';
 	link.rel='shortcut icon';
@@ -57,7 +68,7 @@ window.onload = function(){
 Aprovechando el js se genera y a posteriori se copia el tag link.
 
 ```html
-<link type="image/x-icon" rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAH0lEQVQYlWP4////fwYGhv+4aAZ8kv/////PMCxMAAADhp9hCrL3JwAAAABJRU5ErkJggg==">
+<link type="image/x-icon" rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAK0lEQVQ4je2QoQEAAAiD+P9pLAarWrdGGAHsAQJumbfgehz8FKRBGqSBqgV8on2fKb+SIQAAAABJRU5ErkJggg==">
 ```
 
 # Resultado final
@@ -66,8 +77,8 @@ Aprovechando el js se genera y a posteriori se copia el tag link.
 
 * favicon_1_: html 123 Bytes + favicon.ico 318 Bytes = 441 Bytes
 * favicon_2_: html 556 Bytes 
-* favicon_3_: html 98  Bytes + js 415 Bytes  = 512 Bytes
-* favicon_4_: html 257 Bytes 
+* favicon_3_: html 98  Bytes + js 465 Bytes  = 562 Bytes
+* favicon_4_: html 274 Bytes
 
 ---
 
