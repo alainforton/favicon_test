@@ -85,5 +85,6 @@ Aprovechando el js se genera y a posteriori se copia el tag link.
 Realizar un script, para obtener el base 64 del favicon que quieras es mejor que la imagen o pasar la imagen a base 64. Por lo tanto despues de esta preuba se detecta que realizar el favicon por js es menos pesado.
 
 
-
+## favicon animado
+[Animado](https://alainforton.github.io/favicon_test/favicon_animado_.html)
 
