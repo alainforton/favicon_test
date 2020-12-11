@@ -1,13 +1,16 @@
 # favicon_test
+
 Prueba de distintos modos de incrustar favicon y su peso correspondiente.
 
 **Se realiza 4 pruebas para detectar que pesa en kbytes o bytes, a la hora de incrustar el favicon.ico**
 
 ---
+
 * favicon_1_: [test 1](https://alainforton.github.io/favicon_test/favicon_1_.html) 
 * favicon_2_: [test 2](https://alainforton.github.io/favicon_test/favicon_2_.html)
 * favicon_3_: [test 3](https://alainforton.github.io/favicon_test/favicon_3_.html)
 * favicon_4_: [test 4](https://alainforton.github.io/favicon_test/favicon_4_.html)
+
 ---
 
 * Test 1 
@@ -57,12 +60,15 @@ Aprovechando el js se genera y a posteriori se copia el tag link.
 <link type="image/x-icon" rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAH0lEQVQYlWP4////fwYGhv+4aAZ8kv/////PMCxMAAADhp9hCrL3JwAAAABJRU5ErkJggg==">
 ```
 
-## Resultado final
+# Resultado final
+
 ---
+
 * favicon_1_: html 123 Bytes + favicon.ico 318 Bytes = 441 Bytes
 * favicon_2_: html 556 Bytes 
 * favicon_3_: html 98  Bytes + js 415 Bytes  = 512 Bytes
 * favicon_4_: html 257 Bytes 
+
 ---
 
 Realizar un script, para obtener el base 64 del favicon que quieras es mejor que la imagen o pasar la imagen a base 64. Por lo tanto despues de esta preuba se detecta que realizar el favicon por js es menos pesado.
