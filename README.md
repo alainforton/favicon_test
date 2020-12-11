@@ -33,28 +33,26 @@ Se realiza js para que lo haga dinamicamente. En el test el js esta min.
 ```javascript
 
 window.onload = function(){ 
-	var canvas = document.createElement('canvas');
+	let canvas = document.createElement('canvas');
 	canvas.width=16;
 	canvas.height=16;
-	var ctx=canvas.getContext('2d');
+	let ctx = canvas.getContext('2d');
 	
-	var doblex = 0;
-	var dobley = 0;
-	
+	let contador = {
+		x : 0,
+		y : 0
+	}
 	for(var y = 0; y < 8; y++){
 		for(var x = 0; x < 8; x++){
-			if(((x+y)%2)==0){
-				ctx.fillStyle="white";
-				ctx.fillRect(x+doblex,y+dobley,2,2);
-			}else{
-				ctx.fillStyle="black";
-				ctx.fillRect(x+doblex,y+dobley,2,2);
-			}
-			console.log(x, y);
-			doblex = doblex + 1;
+			
+			ctx.fillStyle= ((( x + y ) % 2) == 0) ? "white" : "black";
+			ctx.fillRect( x + contador.x, y + contador.y, 2, 2);
+			
+			contador.x++;
 		}
-		doblex = 0;
-		dobley = dobley + 1;
+		
+		contador.x = 0;
+		contador.y++;
 	}
 	var link = document.createElement('link');
 	link.type='image/x-icon';
@@ -62,6 +60,7 @@ window.onload = function(){
 	link.href=canvas.toDataURL("image/x-icon");
 	document.getElementsByTagName('head')[0].appendChild(link);
 }
+
 ```
 
 * Test 4 
