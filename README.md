@@ -1,8 +1,8 @@
 # favicon_test (16x16)
+# Prueba de distintas posibilidades del favicon
 
-Prueba de distintos modos de incrustar favicon y su peso correspondiente. 
+## 1 ICO kbytes ? 
 El ico y base 64 del test 1 y 2 [favicon.cc](https://www.favicon.cc/?action=icon&file_id=802401)
-
 
 **Se realiza 4 pruebas para detectar que pesa en kbytes o bytes, a la hora de incrustar el favicon.ico**
 
@@ -71,7 +71,7 @@ Aprovechando el js se genera y a posteriori se copia el tag link.
 <link type="image/x-icon" rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAK0lEQVQ4je2QoQEAAAiD+P9pLAarWrdGGAHsAQJumbfgehz8FKRBGqSBqgV8on2fKb+SIQAAAABJRU5ErkJggg==">
 ```
 
-# Resultado final
+## Resultado final
 
 ---
 
@@ -84,7 +84,15 @@ Aprovechando el js se genera y a posteriori se copia el tag link.
 
 Realizar un script, para obtener el base 64 del favicon que quieras es mejor que la imagen o pasar la imagen a base 64. Por lo tanto despues de esta preuba se detecta que realizar el favicon por js es menos pesado.
 
+## 2 favicon animado
+Para animar el favicon se puede tomar distintos caminos, pero al final y despues de dos pruebas he determinado que realizar primero el dise;o en js y encriptarlo a base 64 es menos pesado, aunque no se tiene en cuenta para dise;os mas complejos.
 
-## favicon animado
-[Animado](https://alainforton.github.io/favicon_test/favicon_animado_.html)
+En este enlace puedes ver el favicon intercalado animado con un setInterval a 200 [Animado](https://alainforton.github.io/favicon_test/favicon_animado_.html)
 
+```javascript
+	return setInterval(function() {    
+ 		ico.href = colors[contadoranimacion%2] ;
+ 		contadoranimacion++; 	
+	}, 200);
+```
+ Lo que se hace es cambiar directamente el href(el base 64) entre dos opciones con modulo de 2.
